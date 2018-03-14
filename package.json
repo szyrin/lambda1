@@ -1,0 +1,19 @@
+{
+  "name": "transcode-video",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "run-local-lambda --file index.js --event test/event.json",
+    "predeploy": "zip -r Lambda-Deployment.zip * -x *.zip *.json *.log",
+    "deploy": "aws lambda update-function-code --function-name arn:aws:lambda:eu-west-1:238169289920:function:transcode-video --zip-file fileb://Lambda-Deployment.zip"
+  },
+  "dependencies": {
+    "aws-sdk": "latest"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "run-local-lambda": "^1.1.1"
+  }
+}
